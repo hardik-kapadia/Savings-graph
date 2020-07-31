@@ -137,7 +137,9 @@ public class SavingsData extends Application {
         Double[] interestOnChart = new Double[31];
 
         savingsData = new XYChart.Series();
+        savingsData.setName("Savings");
         interestData = new XYChart.Series();
+        interestData.setName("Savings With interest");
 
         savingsOnChart[0] = 0.0;
         interestOnChart[0] = 0.0;
