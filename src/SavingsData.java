@@ -136,16 +136,11 @@ public class SavingsData extends Application {
         Double[] savingsOnChart = new Double[31];
         Double[] interestOnChart = new Double[31];
 
-        savingsData = new XYChart.Series();
-        savingsData.setName("Savings");
-        interestData = new XYChart.Series();
-        interestData.setName("Savings With interest");
-
         savingsOnChart[0] = 0.0;
         interestOnChart[0] = 0.0;
 
         this.savingsData.getData().clear();
-        this.savingsData.getData().clear();
+        this.interestData.getData().clear();
 
         savingsData.getData().add(new XYChart.Data(0, savingsOnChart[0]));
         interestData.getData().add(new XYChart.Data(0, interestOnChart[0]));
@@ -159,11 +154,6 @@ public class SavingsData extends Application {
             interestOnChart[i] = (interestOnChart[i - 1] + savingsV * 12) * (1 + (this.interestR / 100.0));
             interestData.getData().add(new XYChart.Data(i, interestOnChart[i]));
         }
-
-        this.lineChart.getData().clear();
-
-        this.lineChart.getData().add(interestData);
-        this.lineChart.getData().add(savingsData);
 
         layout.setCenter(this.lineChart);
 
